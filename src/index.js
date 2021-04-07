@@ -1,7 +1,7 @@
-import keyvApiTests from './api';
-import keyvValueTests from './values';
-import keyvNamepsaceTests from './namespace';
-import keyvOfficialTests from './official';
+const keyvApiTests = require('./api.js');
+const keyvValueTests = require('./values.js');
+const keyvNamepsaceTests = require('./namespace.js');
+const keyvOfficialTests = require('./official.js');
 
 const keyvTestSuite = (test, Keyv, store) => {
 	keyvApiTests(test, Keyv, store);
@@ -9,10 +9,9 @@ const keyvTestSuite = (test, Keyv, store) => {
 	keyvNamepsaceTests(test, Keyv, store);
 };
 
-export {
-	keyvApiTests,
-	keyvValueTests,
-	keyvNamepsaceTests,
-	keyvOfficialTests
-};
-export default keyvTestSuite;
+module.exports = keyvTestSuite;
+
+module.exports.keyvApiTests = keyvApiTests;
+module.exports.keyvValueTests = keyvValueTests;
+module.exports.keyvNamepsaceTests = keyvNamepsaceTests;
+module.exports.keyvOfficialTests = keyvOfficialTests;
